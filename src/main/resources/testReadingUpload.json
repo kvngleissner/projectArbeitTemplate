@@ -1,0 +1,24 @@
+{
+    "id": "be5859c4-6945-49cb-9ea8-260070abeadd",
+    "customer": {
+        "id": "eaefd417-151d-439b-9ac6-6e99497e0d8e",
+        "firstName": "Marieluise",
+        "lastName": "Augustin",
+        "birthDate": [
+            1968,
+            9,
+            12
+        ],
+        "gender": "W"
+    },
+    "dateOfReading": [
+        2018,
+        11,
+        1
+    ],
+    "comment": "Test",
+    "meterId": "MST-af34569",
+    "substitute": false,
+    "meterCount": 18679.0,
+    "kindOfMeter": "POWER"
+}

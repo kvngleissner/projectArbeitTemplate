@@ -1,0 +1,317 @@
+{
+	"info": {
+		"_postman_id": "d3a0a160-0c0e-41ad-817f-7fc82c6a88e9",
+		"name": "BSINFO Projekt Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36296681"
+	},
+	"item": [
+		{
+			"name": "setupDB",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8056/rest/setupDB",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8056",
+					"path": [
+						"rest",
+						"setupDB"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reading-Insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"546f78ad-4f8a-48fb-8e03-4f6fda7cdd02\",\r\n    \"customer\": {\r\n        \"id\": \"da00dc23-6b0c-4753-917f-bbc0fd43d948\",\r\n        \"firstName\": \"Test\",\r\n        \"lastName\": \"TestMann\",\r\n        \"birthDate\": [\r\n            1999,\r\n            9,\r\n            9\r\n        ],\r\n        \"gender\": \"U\"\r\n    },\r\n    \"dateOfReading\": [\r\n        2020,\r\n        12,\r\n        5\r\n    ],\r\n    \"comment\": \"\",\r\n    \"meterId\": \"MST-af34569\",\r\n    \"substitute\": false,\r\n    \"meterCount\": 24702.0,\r\n    \"kindOfMeter\": \"POWER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8056/rest/readings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8056",
+					"path": [
+						"rest",
+						"readings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer-Insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"c90b1ea9-a34f-43b6-9b5b-357ae9693509\",\r\n        \"firstName\": \"Test\",\r\n        \"lastName\": \"TestMann\",\r\n        \"birthDate\": [\r\n            1999,\r\n            9,\r\n            9\r\n        ],\r\n        \"gender\": \"U\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8056/rest/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8056",
+					"path": [
+						"rest",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reading-Insert-no-uuid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"\",\r\n    \"customer\": {\r\n        \"id\": \"c90b1ea9-a34f-43b6-9b5b-357ae9693509\",\r\n        \"firstName\": \"Test\",\r\n        \"lastName\": \"TestMann\",\r\n        \"birthDate\": [\r\n            1999,\r\n            9,\r\n            9\r\n        ],\r\n        \"gender\": \"U\"\r\n    },\r\n    \"dateOfReading\": [\r\n        2020,\r\n        12,\r\n        5\r\n    ],\r\n    \"comment\": \"\",\r\n    \"meterId\": \"MST-af34569\",\r\n    \"substitute\": false,\r\n    \"meterCount\": 24702.0,\r\n    \"kindOfMeter\": \"POWER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8056/rest/readings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8056",
+					"path": [
+						"rest",
+						"readings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8056/rest/customers/c90b1ea9-a34f-43b6-9b5b-357ae9693509",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8056",
+					"path": [
+						"rest",
+						"customers",
+						"c90b1ea9-a34f-43b6-9b5b-357ae9693509"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reading get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8056/rest/readings/546f78ad-4f8a-48fb-8e03-4f6fda7cdd02",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8056",
+					"path": [
+						"rest",
+						"readings",
+						"546f78ad-4f8a-48fb-8e03-4f6fda7cdd02"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"c90b1ea9-a34f-43b6-9b5b-357ae9693509\",\r\n    \"firstName\": \"TestMann\",\r\n    \"lastName\": \"Eibl\",\r\n    \"birthDate\": [\r\n        1945,\r\n        4,\r\n        10\r\n    ],\r\n    \"gender\": \"U\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8056/rest/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8056",
+					"path": [
+						"rest",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reading update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"546f78ad-4f8a-48fb-8e03-4f6fda7cdd02\",\r\n    \"customer\": {\r\n        \"id\": \"c90b1ea9-a34f-43b6-9b5b-357ae9693509\",\r\n        \"firstName\": \"Test\",\r\n        \"lastName\": \"TestMann\",\r\n        \"birthDate\": [\r\n            1999,\r\n            9,\r\n            9\r\n        ],\r\n        \"gender\": \"U\"\r\n    },\r\n    \"dateOfReading\": [\r\n        2020,\r\n        12,\r\n        5\r\n    ],\r\n    \"comment\": \"\",\r\n    \"meterId\": \"TEST-ID\",\r\n    \"substitute\": false,\r\n    \"meterCount\": 24702.0,\r\n    \"kindOfMeter\": \"POWER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8056/rest/readings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8056",
+					"path": [
+						"rest",
+						"readings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reading get filtered",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8056/rest/readings?customer=c90b1ea9-a34f-43b6-9b5b-357ae9693509&start=2020-01-01&end=2022-01-01&kindOfMeter=POWER",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8056",
+					"path": [
+						"rest",
+						"readings"
+					],
+					"query": [
+						{
+							"key": "customer",
+							"value": "c90b1ea9-a34f-43b6-9b5b-357ae9693509"
+						},
+						{
+							"key": "start",
+							"value": "2020-01-01"
+						},
+						{
+							"key": "end",
+							"value": "2022-01-01"
+						},
+						{
+							"key": "kindOfMeter",
+							"value": "POWER"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reading delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8056/rest/readings/546f78ad-4f8a-48fb-8e03-4f6fda7cdd02",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8056",
+					"path": [
+						"rest",
+						"readings",
+						"546f78ad-4f8a-48fb-8e03-4f6fda7cdd02"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8056/rest/customers/c90b1ea9-a34f-43b6-9b5b-357ae9693509",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8056",
+					"path": [
+						"rest",
+						"customers",
+						"c90b1ea9-a34f-43b6-9b5b-357ae9693509"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllCustomers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8056/rest/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8056",
+					"path": [
+						"rest",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

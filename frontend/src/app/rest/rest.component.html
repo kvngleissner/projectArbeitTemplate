@@ -1,0 +1,152 @@
+<!-- Customer Table -->
+<mat-form-field>
+  <mat-label>Filter Table</mat-label>
+  <input matInput (keyup)="applyFilter($event, 'customers')" placeholder="Search" #input>
+</mat-form-field>
+
+<div class="new-table">
+  <button (click)="openCreateDialog('createCustomer', '')">NEW</button>
+
+  <table mat-table [dataSource]="dataSourceCustomer" matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+    </ng-container>
+
+    <!-- Last Name Column -->
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+      <td mat-cell *matCellDef="let row"> {{row.lastName}} </td>
+    </ng-container>
+
+    <!-- First Name Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+      <td mat-cell *matCellDef="let row"> {{row.firstName}} </td>
+    </ng-container>
+
+    <!-- Gender Column -->
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Gender </th>
+      <td mat-cell *matCellDef="let row"> {{row.gender}} </td>
+    </ng-container>
+
+    <!-- Birthdate Column -->
+    <ng-container matColumnDef="birthDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Birthdate </th>
+      <td mat-cell *matCellDef="let row"> {{row.birthDate[2]}}.{{row.birthDate[1]}}.{{row.birthDate[0]}} </td>
+    </ng-container>
+
+    <!-- Button Actions -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+      <td mat-cell *matCellDef="let row">
+        <button (click)="getPrintReadings(row)">Readings</button>
+        <button (click)="openUpdateDialog('updateCustomer', row)">Edit</button>
+        <button (click)="openDeleteDialog('deleteCustomer', row.id)">Delete</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsCustomer"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsCustomer;"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[10, 25, 50, 100]"
+    [pageSize]="10"
+    showFirstLastButtons aria-label="Select page of customers" #MatPaginator>
+  </mat-paginator>
+</div>
+
+<!-- Reading Table -->
+
+<mat-form-field>
+  <mat-label>Filter Table</mat-label>
+  <input matInput (keyup)="applyFilter($event, 'readings')" placeholder="Search" #input>
+</mat-form-field>
+
+<div class="new-table">
+  <button id="btn-createReading" disabled (click)="openCreateDialog('createReading', tempCustomer)">NEW</button>
+  <div id="table-notification-empty" style="display: none">No Readings for this customer yet</div>
+
+  <table mat-table [dataSource]="dataSourceReading" matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+    </ng-container>
+
+    <!-- Customer ID Column -->
+    <ng-container matColumnDef="customerId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Customer ID </th>
+      <td mat-cell *matCellDef="let row"> {{row.customer.id}} </td>
+    </ng-container>
+
+    <!-- Kind of Meter Column -->
+    <ng-container matColumnDef="kindOfMeter">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Kind of Meter </th>
+      <td mat-cell *matCellDef="let row"> {{row.kindOfMeter}} </td>
+    </ng-container>
+
+    <!-- Meter ID Column -->
+    <ng-container matColumnDef="meterId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Meter ID </th>
+      <td mat-cell *matCellDef="let row"> {{row.meterId}} </td>
+    </ng-container>
+
+    <!-- Meter Count Column -->
+    <ng-container matColumnDef="meterCount">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Meter Count </th>
+      <td mat-cell *matCellDef="let row"> {{row.meterCount}} </td>
+    </ng-container>
+
+    <!-- Substitute Column -->
+    <ng-container matColumnDef="substitute">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Substitute </th>
+      <td mat-cell *matCellDef="let row"> {{row.substitute}} </td>
+    </ng-container>
+
+    <!-- Date Column -->
+    <ng-container matColumnDef="dateOfReading">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+      <td mat-cell *matCellDef="let row"> {{row.dateOfReading[2]}}.{{row.dateOfReading[1]}}.{{row.dateOfReading[0]}} </td>
+    </ng-container>
+
+    <!-- Comment Column -->
+    <ng-container matColumnDef="comment">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Comment </th>
+      <td mat-cell *matCellDef="let row"> {{row.comment}} </td>
+    </ng-container>
+
+    <!-- Button Actions -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+      <td mat-cell *matCellDef="let row">
+        <button (click)="openUpdateDialog('updateReading', row)">Edit</button>
+        <button (click)="openDeleteDialog('deleteReading', row)">Delete</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsReading"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsReading;"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[10, 25, 50, 100]"
+    [pageSize]="10"
+    showFirstLastButtons aria-label="Select page of readings" #MatPaginator>
+  </mat-paginator>
+</div>

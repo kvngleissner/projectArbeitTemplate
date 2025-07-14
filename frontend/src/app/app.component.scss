@@ -1,0 +1,36 @@
+.create-button,
+.details-button,
+.edit-button,
+.delete-button,
+.ok-button,
+.cancel-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px 10px;
+  position: relative;
+  text-align: center;
+  align-self: center;
+}
+
+.create-button:hover,
+.details-button:hover,
+.edit-button:hover,
+.delete-button:hover,
+.ok-button:hover,
+.cancel-button:hover, {
+  transform: scale(1.05);
+  background-color: rgba(0, 0, 0, 0.1); /* Light hover background */
+}
+
+.cancel-button {
+  margin: 0 70px;
+}
+
+.ok-button,
+.cancel-button {
+  bottom: 0;
+  right: 0;
+  padding: 15px 20px;
+  position: absolute;
+}

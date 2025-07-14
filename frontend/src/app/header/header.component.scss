@@ -1,0 +1,46 @@
+.header-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 80px;
+  --mat-sys-surface: #3b3b3b;
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    color: white;
+
+    .brand-logo {
+      margin-right: 20px;
+    }
+  }
+
+  .title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+  }
+
+
+  .spacer {
+    flex: 1;
+  }
+
+  .import-button{
+    margin-left: 30px;
+    color: white;
+  }
+  .export-button {
+    margin-left: 30px;
+    color: white;
+  }
+  .logout-button {
+    margin-left: 30px;
+    color: white;
+  }
+
+}
